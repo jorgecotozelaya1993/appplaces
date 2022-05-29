@@ -8,9 +8,27 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    //PAGINA DE ARRANQUE
+    redirectTo: 'places',
     pathMatch: 'full'
   },
+  {
+    path: 'places',
+    //CODIGO PARA LLAMAR LOS DETALLES DE LOS LUGARES
+
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./places/places.module').then( m => m.PlacesPageModule)
+      },
+      {
+        path: ':placeId',
+        loadChildren: () => import('./places/place-detail/place-detail.module').then(m => m.PlaceDetailPageModule)
+      }
+    ]
+
+  },
+  //A
 ];
 
 @NgModule({

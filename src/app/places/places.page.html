@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Lugares del Mundo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<!-- ESTRAYENDO MI LISTA DE LUGARES DE LA PAGINA places.page.ts -->
+<ion-list>
+    <ion-item *ngFor="let lugares of places" [routerLink]="['/places', lugares.id]">
+      <ion-avatar>
+        <ion-img [src]="lugares.imageURL"></ion-img>
+      </ion-avatar>
+
+      <ion-label color="primary">{{ lugares.title }}</ion-label>
+    </ion-item>
+</ion-list>
+
+</ion-content>
